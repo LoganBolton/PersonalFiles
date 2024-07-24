@@ -1,3 +1,5 @@
+echo "\033[36m$(figlet -f larry3d -w 120 Logan \'s Trapbook)\033[0m" | lolcat
+
 # Created by `pipx` on 2024-03-15 00:15:29
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 export ANTHROPIC_API_KEY=''
