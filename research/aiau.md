@@ -66,3 +66,12 @@ python extract_features.py
 ```
 
 to run this do ```sbatch run_extract_features.sbatch```
+
+
+## Basic SLURM commands
+- Check the status of your jobs by doing ```squeue```
+- To kill a job do ```scancel {job_id}
+- To list current available nodes do ```scontrol show nodes```
+
+## General advice
+Technically you can just use a preinstalled python by loading it from the module ```source /linux_apps/python-v3.12/env```. I would **NOT** recommend doing this if you are trying to run any models because most of them are not using this version of python. Sourcing from the linux apps and then activating your conda env causes all sorts of silent bugs to appear and cause you pain. Just stick to installing python through only conda. 
