@@ -6,8 +6,8 @@ aiau is still in beta testing, so there's a lot of jankiness to set everything u
 
 ## Login
 To login:
-ssh ldb0046@gate.eng.auburn.edu
-type in 'aiau'
+- ssh ldb0046@gate.eng.auburn.edu
+- then type in 'aiau'
 
 ## What is aiau
 Logging in to aiau does **NOT** give you access to GPUs straight away. If you type ```nvidia-smi``` after logging into aiau, it will not work. This is expected behavior and fine.
@@ -70,7 +70,7 @@ to run this do ```sbatch run_extract_features.sbatch```
 
 ## Basic SLURM commands
 - Check the status of your jobs by doing ```squeue```
-- To kill a job do ```scancel {job_id}
+- To kill a job do ```scancel {job_id}```
 - To list current available nodes do ```scontrol show nodes```
 
 # General advice
