@@ -73,5 +73,32 @@ to run this do ```sbatch run_extract_features.sbatch```
 - To kill a job do ```scancel {job_id}
 - To list current available nodes do ```scontrol show nodes```
 
-## General advice
+# General advice
 Technically you can just use a preinstalled python by loading it from the module ```source /linux_apps/python-v3.12/env```. I would **NOT** recommend doing this if you are trying to run any models because most of them are not using this version of python. Sourcing from the linux apps and then activating your conda env causes all sorts of silent bugs to appear and cause you pain. Just stick to installing python through only conda. 
+
+## Bashrc
+For whatever reason, I was having lots of issues with getting my PATH variables to work. I ended up having to change my .bashrc file to make it work. This is definitely cursed and shouldn't work, but it does! There's for sure a better way to do this, but it worked for me.
+
+"~/.bashrc" 21L, 677B                                                                                                                                                                                                             1,1           All
+```
+ export PATH=$HOME/.local/bin:$PATH
+ export CUDA_HOME=/cm/shared/cuda12.4/toolkit/12.4.1
+ export PATH=$CUDA_HOME/bin:$PATH
+ export LD_LIBRARY_PATH=$CUDA_HOME/lib64:$LD_LIBRARY_PATH
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/u2/ldb0046/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/u2/ldb0046/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/u2/ldb0046/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/u2/ldb0046/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+```
